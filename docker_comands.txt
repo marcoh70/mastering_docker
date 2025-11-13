@@ -1,1 +1,65 @@
+Docker systme Prune
+
+### IMAGES
+
+  # List images
+    docker images
+  # Pull image from docker hub
+    docker pull <image-name>
+  # Docker image name format
+  <registry-host>:<port>/<username>/<image-name>:<tag>
+  ex. docker.io/markoh70/mi-image:70
+
+
+### CONTAINERS
+
+  # Forcefully remove containers, images, etc.
+    docker system prune -af
+  # Remove all containers
+    docker system prune -f
+  # Creating a container from a image
+    docker run <image-name>
+  # Creating a container in detaching mode
+    docker run -d --name=<container-name> <image-name>
+  # Creating a container and enter interactive mode
+    docker run -it --name=<container-name> <image-name> bash
+  # Creating a container with port
+    docker run -p <host-port>:<container-port> <image-name>
+  # Creating a container wiht multiple ports
+    docker run -p <host-port1>:<container:port1> -p <host-port2>:<container-port2> <image-name>
+  # looking container information, ports exposed etc.
+    docker ps
+  # Start a container in interactive mode
+    docker start -ia <container-name>
+  # Stop container
+    docker stop <container-name>
+  # Kill a container
+    docker kill <container-name>
+  # Ejecutar un proceso en un contenedor que ya esta corriendo
+    docker exec -it <container-name> bash
+  # logs from a container
+    docker <container-id> or <container-name> logs
+
+### Volume Mapping
+  # Mapping a host path to a container path
+    docker run -v </host-path>:/<container-path> <image-name>
+
+  # Mapping multiple host paths
+    docker run -v docker run -v </host-path1>:/<container-path1>
+    -v docker run -v </host-path2>:/<container-path2> <image-name>
+# Note
+  Under docker desktop you will find the paths allowd for mapping volumes
+  go to settings -> resources -> file sharing
+  example for windows in powerhell
+  docker run -it -v ${pwd}:<container-path> <image-name>
+  ex. docker run -it -v ${PWD}:/a/b/c ubuntu
+
+
+
+
+
+
+
+
+
 
